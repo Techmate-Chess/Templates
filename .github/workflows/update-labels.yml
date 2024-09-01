@@ -26,9 +26,7 @@ jobs:
       with:
         root: data
         schemaMapping: |
-        {
-            "labels/schema.json": [ "labels/labels.yml" ]
-        }
+          { "labels/schema.json": [ "labels/labels.yml" ] }
 
   run-label-update:
     runs-on: ubuntu-latest
