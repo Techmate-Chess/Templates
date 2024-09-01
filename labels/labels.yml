@@ -5,9 +5,9 @@ labels:
 - name: feature
   color: ffdfba
   description: New feature or request
-- name: improvement
+- name: enhancement
   color: ffffba
-  description: Improvement to existing feature
+  description: Enhancement to existing feature
 - name: documentation
   color: baffc9
   description: Documentation related
@@ -26,6 +26,9 @@ labels:
 - name: help wanted
   color: 77dd77
   description: Help wanted
-- name: blocked
+- name: invalid
   color: 779ecb
-  description: Blocked issue
+  description: This doesn't seem right
+- name: wontfix
+  color: ffffff
+  description: This will not be worked on
