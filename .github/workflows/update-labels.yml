@@ -8,12 +8,12 @@ on:
     paths:
     - 'labels/labels.yml'
     - 'labels/schema.json'
-    - '.github/workflows/labels.yml'
+    - '.github/workflows/update-labels.yml'
   pull_request:
     paths:
     - 'labels/labels.yml'
     - 'labels/schema.json'
-    - '.github/workflows/labels.yml'
+    - '.github/workflows/update-labels.yml'
 
 jobs:
   validate:
