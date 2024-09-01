@@ -28,7 +28,7 @@ jobs:
       with:
         root: data
         schemaMapping: |
-          { "labels/schema.json": [ "labels/labels.yml" ] }
+          { "labels/schema.json": [ ".github/labels.yml" ] }
 
   run-label-update:
     needs: validate
@@ -42,7 +42,6 @@ jobs:
         uses: crazy-max/ghaction-github-labeler@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          yaml-file: labels/labels.yml
           dry-run: ${{ github.event_name == 'pull_request' }}
 
   send-webhooks:
