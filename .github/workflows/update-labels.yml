@@ -31,6 +31,7 @@ jobs:
           { "labels/schema.json": [ "labels/labels.yml" ] }
 
   run-label-update:
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       -
@@ -41,10 +42,11 @@ jobs:
         uses: crazy-max/ghaction-github-labeler@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          yaml-file: .github/labels.yml
+          yaml-file: labels/labels.yml
           dry-run: ${{ github.event_name == 'pull_request' }}
 
   send-webhooks:
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - name: Send Webhook
