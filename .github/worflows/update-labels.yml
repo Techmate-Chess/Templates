@@ -1,0 +1,56 @@
+name: Update Labels
+
+on:
+  push:
+    branches:
+    - 'main'
+    - 'init'
+    paths:
+    - 'labels/*'
+    - '.github/workflows/labels.yml'
+  pull_request:
+    paths:
+    - 'labels/*'
+    - '.github/workflows/labels.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Checkout
+      uses: actions/checkout@v4
+    -
+      name: Schema Validation
+      uses: InoUno/yaml-ls-check@develop
+      with:
+        root: data
+        schemaMapping: |
+        {
+            "labels/schema.json": [ "labels/labels.yml" ]
+        }
+
+  run-label-update:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Label Updater
+        uses: crazy-max/ghaction-github-labeler@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          yaml-file: .github/labels.yml
+          dry-run: ${{ github.event_name == 'pull_request' }}
+
+  send-webhooks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Webhook
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/techmate-chess/<target-repo>/dispatches \
+          -d '{"event_type":"label_update_event"}'

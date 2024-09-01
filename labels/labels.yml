@@ -1,0 +1,31 @@
+labels:
+- name: bug
+  color: ffb3ba
+  description: Something isn't working
+- name: feature
+  color: ffdfba
+  description: New feature or request
+- name: improvement
+  color: ffffba
+  description: Improvement to existing feature
+- name: documentation
+  color: baffc9
+  description: Documentation related
+- name: testing
+  color: bae1ff
+  description: Testing related
+- name: priority
+  color: ff6f61
+  description: High priority issue
+- name: discussion
+  color: fbb347
+  description: Discussion related
+- name: question
+  color: ffd700
+  description: Question or inquiry
+- name: help wanted
+  color: 77dd77
+  description: Help wanted
+- name: blocked
+  color: 779ecb
+  description: Blocked issue

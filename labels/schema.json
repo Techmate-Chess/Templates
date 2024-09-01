@@ -1,0 +1,43 @@
+{
+  "$id": "https://techmate-chess.github,io/labels.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "The JSON Schema for labels.yml",
+  "title": "LabelSchema",
+  "type": "object",
+  "properties": {
+    "labels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/label"
+      }
+    }
+  },
+  "$defs": {
+    "label": {
+      "type": "object",
+      "required": [
+        "name",
+        "colour",
+        "description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Label name"
+        },
+        "colour": {
+          "type": "string",
+          "description": "The six character HTML colour code of the label"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description to be used on the label"
+        },
+        "from_name": {
+          "type": "string",
+          "description": "Used to rename an existing label"
+        }
+      }
+    }
+  }
+}
