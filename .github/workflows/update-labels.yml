@@ -6,11 +6,13 @@ on:
     - 'main'
     - 'init'
     paths:
-    - 'labels/*'
+    - 'labels/labels.yml'
+    - 'labels/schema.json'
     - '.github/workflows/labels.yml'
   pull_request:
     paths:
-    - 'labels/*'
+    - 'labels/labels.yml'
+    - 'labels/schema.json'
     - '.github/workflows/labels.yml'
 
 jobs:
